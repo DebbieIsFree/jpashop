@@ -3,6 +3,7 @@ package jpabook.jpashop.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.sql.results.graph.Fetch;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")     // FK 이름이 member_id
     private Member member;
 
@@ -35,4 +36,32 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;     // 주문 상태 [ORDER, CANCEL]
+
+    // 연관 관계 편의 메서드 // (양방향 연관관계 세팅 편리)
+    public void setMember(Member member){
+        this.member = member;
+        member.getOrders().add(this);
+    }
+    // 위와 동일 로직
+//    public static void main(String[] args){
+//        Member member = new Member();
+//        Order order = new Order();
+//
+//        member.getOrders().add(order);
+//        order.setMember(member);
+//    }
+
+    public void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery){
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 }
+
+
+
+
