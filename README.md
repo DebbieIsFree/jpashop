@@ -7,3 +7,10 @@
 
 
 요구사항 분석 : <a href="https://debbieisfree.tistory.com/69">https://debbieisfree.tistory.com/69</a>
+
+
+<br><br>
+<!-- ![스크린샷 2023-08-27 오후 10 00 32](https://github.com/DebbieIsFree/jpashop/assets/83392219/2d27d58b-4b1e-4aaa-a52b-f348d06e9fdd) -->
+
+
+![스크린샷 2023-08-27 오후 10 00 32](https://github.com/DebbieIsFree/jpashop/assets/83392219/ae154da9-b379-49fa-9237-87a6d3e2e3cf)
