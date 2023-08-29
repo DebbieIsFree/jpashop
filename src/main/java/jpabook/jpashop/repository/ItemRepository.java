@@ -17,7 +17,9 @@ public class ItemRepository {
         if(item.getId() == null){   // 이전에 등록된 적 없음
             em.persist(item);
         }else{
-            em.merge(item); // update와 비슷, 강제 업데이트
+            // 준영속성 엔터티 merge
+            Item merge = em.merge(item); // update와 비슷, 강제 업데이트
+            // item은 영속성으로 바뀌진 않는다.
         }
     }
 
